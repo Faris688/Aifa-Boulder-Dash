@@ -18,6 +18,9 @@ import model.type.Stone;
 
 /**
  * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
  */
 public final class Controller implements IController {
 
@@ -134,6 +137,105 @@ public final class Controller implements IController {
 	}
 	
 	/**
+	 * Check if diamonds or stones can fall and make them fall
+	 */
+	public void checkForFall() {
+		String[] fallable = {"model.type.Stone", "model.type.Diamond"};
+		ArrayList<IBlock> mapArray = model.getMap().getGeneratedMap();
+			for (int i=mapArray.size()-1; i>0; i--) {
+				IBlock block = mapArray.get(i);
+				if (Arrays.asList(fallable).contains(block.getClass().getName())) {
+					IBlock nextBlock = mapArray.get(i + model.getMap().getWidth());
+					if (nextBlock.getClass().getName().equals("model.type.Stone")) {
+						IBlock previousBlock = mapArray.get(i + model.getMap().getWidth() - 1);
+						IBlock afterBlock = mapArray.get(i + model.getMap().getWidth() + 1);
+						if ((previousBlock.getPosX() == model.getPlayer().getPosX() && previousBlock.getPosY() == model.getPlayer().getPosY()) || (afterBlock.getPosX() == model.getPlayer().getPosX() && afterBlock.getPosY() == model.getPlayer().getPosY())) {
+							this.die();
+						} else {
+							if (previousBlock.getClass().getName().equals("model.type.Ground") && previousBlock.isWalked()) {
+								Stone newBlock = new Stone(previousBlock.getPosX(), previousBlock.getPosY());
+								newBlock.setFalling(true);
+								mapArray.set(i + model.getMap().getWidth() - 1, newBlock);
+								mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
+							} else if (afterBlock.getClass().getName().equals("model.type.Ground") && afterBlock.isWalked()) {
+								Stone newBlock = new Stone(afterBlock.getPosX(), afterBlock.getPosY());
+								newBlock.setFalling(true);
+								mapArray.set(i + model.getMap().getWidth() + 1, newBlock);
+								mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
+							}
+						}
+					} else if (nextBlock.isWalked() && (nextBlock.getPosY()/16 != model.getPlayer().getPosY()/16 || nextBlock.getPosX()/16 != model.getPlayer().getPosX()/16)) {
+						if (block.getClass().getName().equals("model.type.Stone")) {
+							Stone newBlock = new Stone(block.getPosX(), block.getPosY() + 16);
+							newBlock.setFalling(true);
+							mapArray.set(i + model.getMap().getWidth(), newBlock);
+						} else {
+							Diamond newBlock = new Diamond(block.getPosX(), block.getPosY() + 16);
+							newBlock.setFalling(true);
+							mapArray.set(i + model.getMap().getWidth(), newBlock);
+						}
+						mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
+						try {
+							this.view.actualiser();
+							Thread.sleep(150);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} else if (nextBlock.getClass().getName().equals("model.type.Monster")) {
+						this.explode(i);
+					} else if (model.getPlayer().getPosX()/16 == nextBlock.getPosX()/16 && model.getPlayer().getPosY()/16 == nextBlock.getPosY()/16 && block.isFalling()) {
+						this.die();
+					}
+				}
+			}
+	}
+	
+	
+	
+	/**
+	 * Randomly moves the monsters
+	 */
+	public void moveMonster() {
+		ArrayList<IBlock> mapArray = model.getMap().getGeneratedMap();
+		int x=0;
+		int y=0;
+		for (int i=0; i<mapArray.size(); i++) {
+			IBlock block = mapArray.get(i);
+			if (block.getClass().getName().equals("model.type.Monster")) {
+				Random rand = new Random();
+				int move = rand.nextInt(4);
+				switch (move) {
+					case 0:
+						y = -1;
+						break;
+					case 1:
+						x = 1;
+						break;
+					case 2:
+						y = 1;
+						break;
+					case 3:
+						x = -1;
+						break;
+				}
+				
+				int idNextBlock = ((block.getPosY()+y*16)/16 * model.getMap().getWidth()) + ((block.getPosX()+x*16)/16);
+				IBlock nextBlock = model.getMap().getGeneratedMap().get(idNextBlock);
+				if (nextBlock.getClass().getName().equals("model.type.Ground") && nextBlock.isWalked()) {
+					mapArray.set(idNextBlock, new Monster(nextBlock.getPosX(), nextBlock.getPosY()));
+					mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
+					block.setPosX(x*16);
+					block.setPosY(y*16);
+					if (block.getPosX() == model.getPlayer().getPosX() && block.getPosY() == model.getPlayer().getPosY()) {
+						this.die();
+					}
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Casts an action depending of the block you are on
 	 * @param block Block
 	 * @param idBlock Block ID
@@ -203,113 +305,9 @@ public final class Controller implements IController {
 		}
 	}
 	
-	/**
-	 * Check if diamonds or stones can fall and make them fall
-	 */
-	public void checkForFall() {
-		String[] fallable = {"model.type.Stone", "model.type.Diamond"};
-		ArrayList<IBlock> mapArray = model.getMap().getGeneratedMap();
-			for (int i=mapArray.size()-1; i>0; i--) {
-				IBlock block = mapArray.get(i);
-				if (Arrays.asList(fallable).contains(block.getClass().getName())) {
-					IBlock nextBlock = mapArray.get(i + model.getMap().getWidth());
-					if (nextBlock.getClass().getName().equals("model.type.Stone")) {
-						IBlock previousBlock = mapArray.get(i + model.getMap().getWidth() - 1);
-						IBlock afterBlock = mapArray.get(i + model.getMap().getWidth() + 1);
-						if ((previousBlock.getPosX() == model.getPlayer().getPosX() && previousBlock.getPosY() == model.getPlayer().getPosY()) || (afterBlock.getPosX() == model.getPlayer().getPosX() && afterBlock.getPosY() == model.getPlayer().getPosY())) {
-							this.die();
-						} else {
-							if (previousBlock.getClass().getName().equals("model.type.Ground") && previousBlock.isWalked()) {
-								Stone newBlock = new Stone(previousBlock.getPosX(), previousBlock.getPosY());
-								newBlock.setFalling(true);
-								mapArray.set(i + model.getMap().getWidth() - 1, newBlock);
-								mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
-							} else if (afterBlock.getClass().getName().equals("model.type.Ground") && afterBlock.isWalked()) {
-								Stone newBlock = new Stone(afterBlock.getPosX(), afterBlock.getPosY());
-								newBlock.setFalling(true);
-								mapArray.set(i + model.getMap().getWidth() + 1, newBlock);
-								mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
-							}
-						}
-					} else if (nextBlock.isWalked() && (nextBlock.getPosY()/16 != model.getPlayer().getPosY()/16 || nextBlock.getPosX()/16 != model.getPlayer().getPosX()/16)) {
-						if (block.getClass().getName().equals("model.type.Stone")) {
-							Stone newBlock = new Stone(block.getPosX(), block.getPosY() + 16);
-							newBlock.setFalling(true);
-							mapArray.set(i + model.getMap().getWidth(), newBlock);
-						} else {
-							Diamond newBlock = new Diamond(block.getPosX(), block.getPosY() + 16);
-							newBlock.setFalling(true);
-							mapArray.set(i + model.getMap().getWidth(), newBlock);
-						}
-						mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
-						try {
-							this.view.actualiser();
-							Thread.sleep(150);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					} else if (nextBlock.getClass().getName().equals("model.type.Monster")) {
-						this.explode(i);
-					} else if (model.getPlayer().getPosX()/16 == nextBlock.getPosX()/16 && model.getPlayer().getPosY()/16 == nextBlock.getPosY()/16 && block.isFalling()) {
-						this.die();
-					}
-				}
-			}
-	}
 	
-	/**
-	 * Randomly moves the monsters
-	 */
-	public void moveMonster() {
-		ArrayList<IBlock> mapArray = model.getMap().getGeneratedMap();
-		int x=0;
-		int y=0;
-		for (int i=0; i<mapArray.size(); i++) {
-			IBlock block = mapArray.get(i);
-			if (block.getClass().getName().equals("model.type.Monster")) {
-				Random rand = new Random();
-				int move = rand.nextInt(4);
-				switch (move) {
-					case 0:
-						y = -1;
-						break;
-					case 1:
-						x = 1;
-						break;
-					case 2:
-						y = 1;
-						break;
-					case 3:
-						x = -1;
-						break;
-				}
-				
-				int idNextBlock = ((block.getPosY()+y*16)/16 * model.getMap().getWidth()) + ((block.getPosX()+x*16)/16);
-				IBlock nextBlock = model.getMap().getGeneratedMap().get(idNextBlock);
-				if (nextBlock.getClass().getName().equals("model.type.Ground") && nextBlock.isWalked()) {
-					mapArray.set(idNextBlock, new Monster(nextBlock.getPosX(), nextBlock.getPosY()));
-					mapArray.set(i, new Ground(block.getPosX(), block.getPosY(), true));
-					block.setPosX(x*16);
-					block.setPosY(y*16);
-					if (block.getPosX() == model.getPlayer().getPosX() && block.getPosY() == model.getPlayer().getPosY()) {
-						this.die();
-					}
-				}
-			}
-		}
-	}
 
-	/**
-	 * Prints a death message and closes the window
-	 */
-	public void die() {
-		this.model.getPlayer().die();
-		this.explode(0);
-		this.view.actualiser();
-		this.view.printMessage("YOU DIED");
-		System.exit(0);
-	}
+	
 	
 	/**
 	 * Animation on player/mob deaths - Generates 3x3 diamond cube
@@ -339,5 +337,16 @@ public final class Controller implements IController {
 		for (int x=0; x<explosed.length; x++) {
 			mapArray.set(explosed[x], new Diamond(mapArray.get(explosed[x]).getPosX(), mapArray.get(explosed[x]).getPosY()));
 		}
+	}
+	
+	/**
+	 * Prints a death message and closes the window
+	 */
+	public void die() {
+		this.model.getPlayer().die();
+		this.explode(0);
+		this.view.actualiser();
+		this.view.printMessage("YOU DIED");
+		System.exit(0);
 	}
 }

@@ -4,19 +4,35 @@ import java.awt.Image;
 
 import contract.IBlock;
 
+/**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
 public abstract class Block implements IBlock {
-	// Attributes
+	// Attributes of the Distribution and sprite
 	protected int posX;
 	protected int posY;
 	protected Image sprite;
 
-	// Constructor
+	// Constructor of the different block position
 	public Block(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
 	}
 
-	// Methods
+	// Sprite method
+	public Image getSprite() {
+		return this.sprite;
+	}
+	
+	public void setSprite(Image img) {
+		this.sprite = img;
+	}
+	
+	// Methods of the different position
 	public int getPosX() {
 		return this.posX;
 	}
@@ -33,13 +49,7 @@ public abstract class Block implements IBlock {
 		this.posY += posY;
 	}
 	
-	public Image getSprite() {
-		return this.sprite;
-	}
-	
-	public void setSprite(Image img) {
-		this.sprite = img;
-	}
+	// Displacement methods
 
 	public void walkOn() {}
 	

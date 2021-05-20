@@ -5,6 +5,13 @@ import model.Model;
 import view.View;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class Main.
  *
  * 

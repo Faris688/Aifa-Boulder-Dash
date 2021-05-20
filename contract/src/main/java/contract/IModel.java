@@ -3,6 +3,13 @@ package contract;
 import java.util.Observable;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Interface IModel.
  *
  */

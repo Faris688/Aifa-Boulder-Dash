@@ -2,6 +2,13 @@ package contract;
 
 import java.awt.Image;
 
+/**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
 public interface IPlayer {
 
 	public int getPosX();
