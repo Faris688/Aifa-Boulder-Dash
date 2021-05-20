@@ -32,7 +32,7 @@
   <a href="#documentation">Documentation</a> •
   <a href="#installation">Installation</a> •
   <a href="#use">Use</a> •
-  <a href="#roles">Roles</a>
+  <a href="#roles">Roles</a> •
 </p>
 
 
@@ -47,6 +47,7 @@ All the documentation concerning the project is in the file [/docs](/docs).
 To install the project in development, some prerequisites are necessary:
 - Java JDK 16
 - Maven
+
 -Wampserver 64(MySQL)
 -Junit
 
