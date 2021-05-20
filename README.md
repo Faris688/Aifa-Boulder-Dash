@@ -1,40 +1,59 @@
 <p align="center"><img src="docs/logo.png" height="128" alt="Boulderdash" style="border-radius: 20px"></p>
-<h2 align="center">Projet Java - Groupe 10, Conception & POO</h2>
-
-<p align="center">
-  <img src="https://forthebadge.com/images/badges/built-by-developers.svg">
-  <img src="https://forthebadge.com/images/badges/designed-in-ms-paint.svg">
-  <img src="https://forthebadge.com/images/badges/made-with-java.svg">
+<h2 align="center"> Java Project - Groupe 4, Consisting of UML Conception, Functional and Object Oriented Programming</h2>
+ <a href="#members"><p align="Left">MEMEBERS</p>
+<p align="Left">
+  PROJECT MANAGER: ABDULLAHI ABDULRAHAMAN FARIS
+  
   <br>
 </p>
+
+
+<p align="Left">
+  PROJECT ASSISTANT MANAGER: SAMNICK TONG ROBERTO MARTIAL
+  
+  <br>
+</p>
+
+<p align="Left">
+  PROJECT INNITIATOR: BEHLE RALPH FRANCIS BOME 
+  
+  <br>
+</p>
+
+<p align="Left">
+  PROJECT EXECUTOR: TCHATCHOUA YAMDEU ERWANN-AXEL
+  
+  <br>
+</p>
+</a> 
 
 <p align="center">
   <a href="#description">Description</a> •
   <a href="#documentation">Documentation</a> •
   <a href="#installation">Installation</a> •
-  <a href="#utilisation">Utilisation</a> •
-  <a href="#membres">Membres</a>
+  <a href="#use">Use</a> •
+  <a href="#roles">Roles</a>
 </p>
 
+
 ### Description
-Il s’agit de réécrire un vieux jeu (1984) Boulder Dash crée par Peter Liepa et Chris Gray.
-Le principe du jeu consiste à ramasser un nombre défini de diamants pour ouvrir un passage vers le niveau suivant. Le personnage, surnommé Rockford, doit creuser la terre pour se frayer un chemin. Il devra faire attention à ne pas se faire écraser par un rocher ou un diamant mais également ne pas se faire toucher par les ennemis.
+It's about rewriting an old game (1984) Boulder Dash created by Peter Liepa and Chris Gray.
+The principle of the game is to collect a defined number of diamonds to open a passage to the next level. The character, nicknamed Rockford, must dig the earth to make his way. He will have to be careful not to get crushed by a rock or a diamond but also not to get hit by monster.
 
 ### Documentation
-Toute la documentation concernant le projet se trouve dans le dossier [/docs](/docs).
+All the documentation concerning the project is in the file [/docs](/docs).
 
 ### Installation
-Pour installer le projet en développement, quelques pré-requis sont nécessaires:
-- Java JDK 8
+To install the project in development, some prerequisites are necessary:
+- Java JDK 16
 - Maven
+-Wampserver 64(MySQL)
+-Junit
 
-Il faut ensuite cloner le projet via Git: `$ git clone https://github.com/AlexisVarela/Projet-Java.git` puis l'ouvrir avec votre IDE favori.
+You must then clone the project via Git: `$ git clone https://github.com/Faris688/Aifa-Boulder-Dash.git` then open it with your favorite IDE.
 
-### Utilisation
-Pour jouer au jeu, il suffit de télécharger la dernière version dans l'onglet [/releases](/releases).
+### Use
 
-### Membres
-- Alexis VARELA, *Chef de projet*
-- Alexandre DUVOIS, *Membre*
-- Yann SEGET, *Membre*
-- Nicolas REGALL, *Membre*
+
+### Roles 
+
