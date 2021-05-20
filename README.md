@@ -1,3 +1,5 @@
+# Aifa-Boulder-Dash
+
 <p align="center"><img src="docs/logo.png" height="128" alt="Boulderdash" style="border-radius: 20px"></p>
 <h2 align="center"> Java Project - Groupe 4, Consisting of UML Conception, Functional and Object Oriented Programming</h2>
  <a href="#members"><p align="Left">MEMEBERS</p>
