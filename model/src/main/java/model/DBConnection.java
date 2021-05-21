@@ -5,6 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class DBConnection.
  *
  */

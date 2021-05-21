@@ -12,6 +12,13 @@ import contract.IController;
 import contract.IModel;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class ViewFrame.
  */
 public class ViewFrame extends JFrame implements KeyListener {
@@ -125,7 +132,7 @@ public class ViewFrame extends JFrame implements KeyListener {
 	 */
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
-		this.setTitle("Aifa Boulder Dash !");
+		this.setTitle("Aifa-Boulder-Dash !");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);

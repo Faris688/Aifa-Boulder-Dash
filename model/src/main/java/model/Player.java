@@ -8,14 +8,28 @@ import javax.imageio.ImageIO;
 import contract.IPlayer;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * Class Player
  */
 public class Player implements IPlayer {
+	
+	/**
+	 * Creating different attributes to take care of the positions. 
+	 */
+	
 	private int posX;
 	private int posY;
-	private Image sprite;
-	private int score;
+	
 
+	/**
+	 * A simple Player Method to Initialise the position and images.
+	 */
 	public Player() {
 		this.posX = 16;
 		this.posY = 16;
@@ -28,6 +42,10 @@ public class Player implements IPlayer {
 		}
 	}
 
+	/**
+	 * Different Player methods to generate the position and images.
+	 * @return a required action
+	 */
 	public int getPosX() {
 		return posX;
 	}
@@ -35,9 +53,9 @@ public class Player implements IPlayer {
 	public void setPosX(int posX) {
 		try {
 			if (posX > 0) {
-		    	this.setSprite(ImageIO.read(Model.class.getResource("/Droite.png")));
+		    	this.setSprite(ImageIO.read(Model.class.getResource("/Right.png")));
 			} else {
-				this.setSprite(ImageIO.read(Model.class.getResource("/Gauche.png")));
+				this.setSprite(ImageIO.read(Model.class.getResource("/Left.png")));
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -54,9 +72,9 @@ public class Player implements IPlayer {
 	public void setPosY(int posY) {
 		try {
 			if (posY > 0) {
-		    	this.setSprite(ImageIO.read(Model.class.getResource("/Bas.png")));
+		    	this.setSprite(ImageIO.read(Model.class.getResource("/Down.png")));
 			} else {
-				this.setSprite(ImageIO.read(Model.class.getResource("/Haut.png")));
+				this.setSprite(ImageIO.read(Model.class.getResource("/Up.png")));
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -64,6 +82,20 @@ public class Player implements IPlayer {
 		}
 		this.posY += posY;
 	}
+	
+	
+	/**
+	 * Creating different attributes to take care of the images and scores. 
+	 */
+	
+	private Image sprite;
+	private int score;
+
+	
+	/**
+	 * Different Player methods to generate the position and images.
+	 * @return a required action
+	 */
 	
 	public Image getSprite() {
 		return sprite;
@@ -82,7 +114,7 @@ public class Player implements IPlayer {
 	}
 	
 	/**
-	 * Prints a message on death and close the window.
+	 * Printing a message as soon as the player is dead and close the window.
 	 */
 	public void die() {
 		try {

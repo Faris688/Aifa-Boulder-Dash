@@ -9,12 +9,35 @@ import model.Block;
 import model.Model;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * Class Ground
  */
 public class Ground extends Block implements IBlock {
 
   protected boolean walkedState;
 
+	public void walkOn() {
+		if(!this.isWalked()) {
+			try {
+				this.setSprite(ImageIO.read(Model.class.getResource("/voidGround.png")));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			this.setWalked(true);
+		}
+	}
+	
+  /**
+	 * Methods to take into consideration when moving the Player
+	 */
+  
 	public Ground(int posX, int posY, boolean walkedState) {
     super(posX, posY);
     try {
@@ -29,18 +52,7 @@ public class Ground extends Block implements IBlock {
 	}
     this.setWalked(walkedState);
   }
-	
-	public void walkOn() {
-		if(!this.isWalked()) {
-			try {
-				this.setSprite(ImageIO.read(Model.class.getResource("/voidGround.png")));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			this.setWalked(true);
-		}
-	}
+	// Other walking methods
 
 	public boolean isWalked() {
 		return (boolean) this.walkedState;

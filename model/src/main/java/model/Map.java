@@ -14,10 +14,19 @@ import model.type.Stone;
 import model.type.Wall;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * Class Map
  */
 public class Map implements IMap {
-
+	/**
+	 * Keeping the different attributes in Private even together with the ArrayList.
+	 */
 	private String dataMap;
 	private ArrayList<IBlock> generatedMap = new ArrayList<IBlock>();
 	private int Width;
@@ -25,30 +34,20 @@ public class Map implements IMap {
 	private int diamonds;
 	private Block end;
 
-	public Map(String dataMap, int width, int height, int nb_diamonds) {
+	/**
+	 * Method of the Map representing exactly what is in the Database.
+	 */
+	public Map(String dataMap, int width, int height, int n_diamonds) {
 		this.setDataMap(dataMap);
 		this.setWidth(width);
 		this.setHeight(height);
-		this.setDiamonds(nb_diamonds);
+		this.setDiamonds(n_diamonds);
 	}
 
 	/**
-	 * Instantiates a new Map.
+	 * Different methods of the virtual appliances.
+	 * @return each sub method after creation
 	 */
-	public Map() {
-		this("",0,0,0);
-	}
-
-	public String getDataMap() {
-		return dataMap;
-	}
-
-	public void setDataMap(String dataMap) {
-		this.dataMap = dataMap;
-		if (!dataMap.equals("")) {
-			generateMap();
-		}
-	}
 
 	public int getWidth() {
 		return Width;
@@ -66,13 +65,6 @@ public class Map implements IMap {
 		Height = height;
 	}
 	
-	public ArrayList<IBlock> getGeneratedMap() {
-		return generatedMap;
-	}
-
-	public void setGeneratedMap(ArrayList<IBlock> generatedMap) {
-		this.generatedMap = generatedMap;
-	}
 
 	public int getDiamonds() {
 		return diamonds;
@@ -91,7 +83,7 @@ public class Map implements IMap {
 	}
 
 	/**
-	 * Generates the map
+	 * Generates the map with the help of Json-jar found inside the client and other functionalities
 	 */
 	public void generateMap() {
 		JSONObject obj = new JSONObject(this.dataMap);
@@ -135,6 +127,37 @@ public class Map implements IMap {
 	    		  }
 	    	  }
 	      }
+	}
+	
+	/**
+	 * Methods to instantiate a new Map.
+	 */
+	public Map() {
+		this("",0,0,0);
+	}
+
+	public String getDataMap() {
+		return dataMap;
+	}
+
+	public void setDataMap(String dataMap) {
+		this.dataMap = dataMap;
+		if (!dataMap.equals("")) {
+			generateMap();
+		}
+	}
+	
+	/**
+	 * Instantiating the ArrayList.
+	 * @return generatedMap
+	 * @param using the Database
+	 */
+	public ArrayList<IBlock> getGeneratedMap() {
+		return generatedMap;
+	}
+
+	public void setGeneratedMap(ArrayList<IBlock> generatedMap) {
+		this.generatedMap = generatedMap;
 	}
 	
 }

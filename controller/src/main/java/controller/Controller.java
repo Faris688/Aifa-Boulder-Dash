@@ -48,7 +48,7 @@ public final class Controller implements IController {
      */
 	
 	public void control() {
-		this.view.printMessage("Appuyez sur Z,Q,S,D pour vous déplacer.");
+		this.view.printMessage("Press on Up arrow,Left arrow,Down arrow,Right arrow for the Displacement.");
 	}
 
 	/**

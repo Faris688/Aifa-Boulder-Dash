@@ -9,14 +9,24 @@ import model.Block;
 import model.Model;
 
 /**
- * Stone Class
- * @author Java
- *
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
  */
+
+/**
+ * Stone Class
+ */
+
 public class Stone extends Block implements IBlock {
 	
 	private boolean falling = false;
 
+	/**
+	 * Methods to take into consideration when moving the Player
+	 */
+	
 	public Stone(int posX, int posY) {
 		super(posX, posY);
 		try {

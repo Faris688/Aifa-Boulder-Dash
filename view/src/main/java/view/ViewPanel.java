@@ -13,6 +13,13 @@ import contract.IPlayer;
 import model.Block;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class ViewPanel.
  *
  */
@@ -72,7 +79,7 @@ class ViewPanel extends JPanel implements Observer {
 			graphics.drawImage(block.getSprite(), block.getPosX(), block.getPosY(), this);
 		}
 		graphics.drawImage(this.player.getSprite(), this.player.getPosX(), this.player.getPosY(), this);
-		graphics.setColor(Color.white);
+		graphics.setColor(Color.green);
 		graphics.fillRect(16, 0, 55, 16);
 		graphics.setColor(Color.black);
 		graphics.drawString("Score : " + this.player.getScore(), 18, 12);

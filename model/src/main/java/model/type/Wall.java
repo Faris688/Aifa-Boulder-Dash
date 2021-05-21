@@ -8,13 +8,26 @@ import contract.IBlock;
 import model.Block;
 import model.Model;
 
+
+/**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
 /**
  * Class Wall
  */
 public class Wall extends Block implements IBlock {
 
+	// Protected Attribute
   protected boolean breakable;
 
+  /**
+	 * Methods to take into consideration when moving the Player
+	 */
+  
 	public Wall(int posX, int posY, boolean breakable) {
     super(posX, posY);
     try {

@@ -6,23 +6,23 @@ import java.util.Observable;
 import contract.IModel;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class Model.
  *
  */
 public final class Model extends Observable implements IModel {
 
-	private Map map;
-	private Player player;
-
 	/**
-	 * Instantiates a new model.
-	 */
-	public Model() {
-		this.map = new Map();
-		this.player = new Player();
-	}
-
-
+     * Attributes for Map and Player.
+     */
+	private Map map;
+	
 	/**
      * Gets the map.
      *
@@ -32,18 +32,9 @@ public final class Model extends Observable implements IModel {
 		return this.map;
 	}
 
-	public Player getPlayer() {
-		return player;
-	}
-
-
-	public void setPlayer(Player player) {
-		this.player = player;
-	}
-
 
 	/**
-     * Sets the hello world.
+     * Setting the map.
      *
      * @param map
      *            The map
@@ -54,6 +45,33 @@ public final class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 
+	
+	private Player player;
+	/**
+     * Method to get the Player.
+     *
+     * @return the Player
+     */
+	public Player getPlayer() {
+		return player;
+	}
+
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
+	
+	/**
+	 * Instantiates a new model.
+	 */
+	public Model() {
+		this.map = new Map();
+		this.player = new Player();
+	}
+
+
+	
 	/**
      * Load the map.
      *

@@ -10,6 +10,13 @@ import contract.IModel;
 import contract.IView;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class View.
  *
  */
@@ -18,17 +25,7 @@ public final class View implements IView, Runnable {
 	/** The frame. */
 	public final ViewFrame viewFrame;
 
-	/**
-	 * Instantiates a new view.
-	 *
-	 * @param model
-	 *          the model
-	 */
-	public View(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
-		SwingUtilities.invokeLater(this);
-	}
-
+	
 	/**
 	 * Key code to controller order.
 	 *
@@ -52,6 +49,9 @@ public final class View implements IView, Runnable {
 	}
 
 
+	/**
+	 * Sets the Message.
+	 */
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 		this.viewFrame.getGraphics().drawString(message, 200, 200);
@@ -62,6 +62,18 @@ public final class View implements IView, Runnable {
 	}
 
 	/**
+	 * Instantiates a new view.
+	 *
+	 * @param model
+	 *          the model
+	 */
+	public View(final IModel model) {
+		this.viewFrame = new ViewFrame(model);
+		SwingUtilities.invokeLater(this);
+	}
+
+	
+	/**
 	 * Sets the controller.
 	 *
 	 * @param controller
@@ -71,6 +83,10 @@ public final class View implements IView, Runnable {
 		this.viewFrame.setController(controller);
 	}
 
+
+	/**
+	 * Resetting the Frame used.
+	 */
 	public void actualiser() {
 		this.viewFrame.repaint();
 	}

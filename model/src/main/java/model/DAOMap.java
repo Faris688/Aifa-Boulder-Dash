@@ -5,6 +5,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
 
 /**
  * The Class DAOMap.
@@ -27,11 +33,25 @@ class DAOMap {
 		this.connection = connection;
 	}
 
-
 	/**
-	 * Finds the map
 	 * @param id Map ID from DB
 	 * @return Map
+	 */
+	public Map find(final String code) {
+		return null;
+	}
+
+	public Connection getConnection() {
+		return connection;
+	}
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+	
+	
+	/**
+	 * Finds the map
 	 */
 	public Map find(final int id) {
 		Map map = new Map();
@@ -50,18 +70,6 @@ class DAOMap {
 		return map;
 	}
 
-	
-	public Map find(final String code) {
-		return null;
-	}
-
-	public Connection getConnection() {
-		return connection;
-	}
-
-	public void setConnection(Connection connection) {
-		this.connection = connection;
-	}
 	
 	
 }

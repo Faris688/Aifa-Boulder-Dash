@@ -9,12 +9,19 @@ import model.Block;
 import model.Model;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * Class Diamond
  */
 public class Diamond extends Block implements IBlock {
 
 	private boolean falling = false;
-	// Constructor
+	// Constructor to take care of the position of the Player
 	public Diamond(int posX, int posY) {
     super(posX, posY);
     try {
@@ -24,6 +31,10 @@ public class Diamond extends Block implements IBlock {
 		e.printStackTrace();
 	}
   }
+	
+	/**
+	 * Methods to take into consideration when moving the Player
+	 */
 	
 	public void walkOn() {
 		try {

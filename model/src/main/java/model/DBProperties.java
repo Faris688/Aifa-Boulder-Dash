@@ -5,6 +5,13 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * The Class DBProperties.
  *
  */

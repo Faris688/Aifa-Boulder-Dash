@@ -10,12 +10,23 @@ import model.Block;
 import model.Model;
 
 /**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
+/**
  * Class Monster
  */
 public class Monster extends Block implements IBlock {
 
 	private Image sprite;
 
+	/**
+	 * Methods to take into consideration when moving the Player
+	 */
+	
 	public Monster(int posX, int posY) {
 		super(posX, posY);
 		try {
