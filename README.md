@@ -34,7 +34,7 @@
   <a href="#documentation">Documentation</a> •
   <a href="#installation">Installation</a> •
   <a href="#use">Use</a> •
-  <a href="#roles">Roles</a> •
+  
 </p>
 
 
@@ -56,7 +56,7 @@ To install the project in development, some prerequisites are necessary:
 You must then clone the project via Git: `$ git clone https://github.com/Faris688/Aifa-Boulder-Dash.git` then open it with your favorite IDE.
 
 ### Use
-WE must download an emulator
+A username and password is required in order to play the game.
 
-### Roles 
+
 
