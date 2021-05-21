@@ -1,7 +1,7 @@
 package main;
 
-import java.util.Scanner;
-
+import java.io.File;
+import java.io.IOException;
 import controller.Controller;
 import model.Model;
 import view.View;
@@ -25,6 +25,9 @@ public abstract class Main {
      *
      * @param args
      *            the arguments
+     * @throws IOException 
+     * @throws UnsupportedAudioFileException 
+     * @throws LineUnavailableException 
      */
     public static void main(final String[] args) {
         final Model model = new Model();
@@ -35,20 +38,5 @@ public abstract class Main {
         controller.run();
         controller.control();
         
-        Scanner input = new Scanner(System.in);
         
-        String username, password;
-        
-        System.out.print("Enter your username: ");
-        username = input.nextLine();
-
-        System.out.print("Enter your password: ");
-        password = input.nextLine();
-        
-        if(username.equals("Faris") && (password.equals("Love"))) {
-        	System.out.println("Welcome to Aifa-Boulder-Dash! ");
-        }else {
-        	System.out.println("The entered information is invalid! ");
-        }
-    }
-}
+    }}
