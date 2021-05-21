@@ -8,6 +8,13 @@ import org.junit.Test;
 
 import org.junit.Assert;
 
+/**
+ * The Class Controller.
+ * @author client
+ * @author Aifa-Boulder-Dash
+ * @version 2021
+ */
+
 public class MapTest {
 
 	private Map map;

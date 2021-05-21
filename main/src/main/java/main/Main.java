@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Scanner;
+
 import controller.Controller;
 import model.Model;
 import view.View;
@@ -32,6 +34,21 @@ public abstract class Main {
         view.setController(controller);
         controller.run();
         controller.control();
+        
+        Scanner input = new Scanner(System.in);
+        
+        String username, password;
+        
+        System.out.print("Enter your username: ");
+        username = input.nextLine();
 
+        System.out.print("Enter your password: ");
+        password = input.nextLine();
+        
+        if(username.equals("Faris") && (password.equals("Love"))) {
+        	System.out.println("Welcome to Aifa-Boulder-Dash! ");
+        }else {
+        	System.out.println("The entered information is invalid! ");
+        }
     }
 }

@@ -4,12 +4,14 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.IModel;
+
 
 /**
  * The Class Controller.
@@ -132,6 +134,24 @@ public class ViewFrame extends JFrame implements KeyListener {
 	 */
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
+		
+        Scanner input = new Scanner(System.in);
+        
+        String username, password;
+        
+        System.out.print("Enter your username: ");
+        username = input.nextLine();
+
+        System.out.print("Enter your password: ");
+        password = input.nextLine();
+        
+        if(username.equals("Aifa-Boulder-Dash") && (password.equals("Group3"))) {
+        	System.out.println("Welcome to Aifa-Boulder-Dash! ");
+        }else {
+        	System.out.println("The entered information is invalid! ");
+        }
+    
+		
 		this.setTitle("Aifa-Boulder-Dash !");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
