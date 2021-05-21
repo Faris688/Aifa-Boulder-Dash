@@ -50,6 +50,7 @@ To install the project in development, some prerequisites are necessary:
 - Maven
 
 -Wampserver 64(MySQL)
+
 -Junit
 
 You must then clone the project via Git: `$ git clone https://github.com/Faris688/Aifa-Boulder-Dash.git` then open it with your favorite IDE.
