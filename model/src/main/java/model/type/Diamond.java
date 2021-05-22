@@ -25,7 +25,7 @@ public class Diamond extends Block implements IBlock {
 	public Diamond(int posX, int posY) {
     super(posX, posY);
     try {
-    	this.setSprite(ImageIO.read(Model.class.getResource("/diamond.png")));
+    	this.setSprite(ImageIO.read(Model.class.getResource("/dia.png")));
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
