@@ -135,18 +135,8 @@ public class ViewFrame extends JFrame implements KeyListener {
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
 		
-        Scanner input = new Scanner(System.in);
         
-        String username, password;
-        
-        System.out.print("Enter your username: ");
-        username = input.nextLine();
-
-        System.out.print("Enter your password: ");
-        password = input.nextLine();
-        
-        if(username.equals("Group4") && (password.equals("Exia"))) {
-        	System.out.println("Welcome to Aifa-Boulder-Dash! ");
+        	
         	this.setTitle("Aifa-Boulder-Dash !");
     		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     		this.setResizable(false);
@@ -154,10 +144,7 @@ public class ViewFrame extends JFrame implements KeyListener {
     		this.setContentPane(new ViewPanel(this));
     		this.setSize(model.getMap().getWidth()*16 + 6 , model.getMap().getHeight()*16 + 35);
     		this.setLocationRelativeTo(null);
-        }else {
-        	System.out.println("The entered information is invalid! ");
-        	
-        }
+       
     
 		
 		
