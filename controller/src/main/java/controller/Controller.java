@@ -93,6 +93,24 @@ public final class Controller implements IController {
 				case Left:
 					this.model.getPlayer().setPosX(-16);
 					break;
+					
+				case lab1:
+					this.model.loadMap("id");
+					break;
+				case lab2:
+					this.model.loadMap("id");
+					break;	
+				case lab3:
+					this.model.loadMap("id");
+					break;
+				case lab4:
+					this.model.loadMap("id");
+					break;
+				case lab5:
+					this.model.loadMap("id");
+					break;
+					default:
+						break;
 			}
 		}
 	}

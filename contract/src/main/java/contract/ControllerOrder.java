@@ -16,6 +16,13 @@ public enum ControllerOrder {
 	Top,
 	Right,
 	Bottom,
-	Left
+	Left, 
+	lab1,
+	lab2, 
+	lab3,
+	lab4,
+	lab5, 
+	
+	
 
 }

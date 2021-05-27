@@ -22,6 +22,7 @@ import contract.IView;
  */
 public final class View implements IView, Runnable {
 
+	private static final ControllerOrder ControllerOrder = null;
 	/** The frame. */
 	public final ViewFrame viewFrame;
 
@@ -43,6 +44,17 @@ public final class View implements IView, Runnable {
 				return ControllerOrder.Bottom;
 			case KeyEvent.VK_LEFT:
 				return ControllerOrder.Left;
+			case KeyEvent.VK_1:
+				return ControllerOrder.lab1;
+			case KeyEvent.VK_2:
+				return ControllerOrder.lab2;
+			case KeyEvent.VK_3:
+				return ControllerOrder.lab3;
+			case KeyEvent.VK_4:
+				return ControllerOrder.lab4;
+			case KeyEvent.VK_5:
+				return ControllerOrder.lab5;
+				
 			default:
 				return null;
 		}

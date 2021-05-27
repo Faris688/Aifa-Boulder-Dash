@@ -55,7 +55,8 @@ class DAOMap {
 	 */
 	public Map find(final int id) {
 		Map map = new Map();
-
+		
+ 
 		try {
 			final String sql = "CALL getMap(?)";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
@@ -63,11 +64,13 @@ class DAOMap {
 			call.execute();
 			final ResultSet result = call.getResultSet();
 			result.next();
+			if(result.first()) {
 			map = new Map(result.getObject(1).toString(), (int) result.getObject(2), (int) result.getObject(3), (int) result.getObject(4));
+			}return map;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return map;
+		return null;
 	}
 
 	
